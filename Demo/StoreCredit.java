@@ -7,8 +7,8 @@ public class StoreCredit{
 	
 	public static void main(String [] args) throws IOException{
 		
-		String input_File_Name = "Problems\\A-large-practice.in";
-		String output_File_Name = "Problems\\A-large-practice-result.txt";
+		String input_File_Name = "Problems\\A-small-practice.in";
+		String output_File_Name = "Problems\\A-small-practice-result.txt";
 		List<String> data = new ArrayList<String>();
 		int number_Of_Test_Cases;
 		int size_Of_Test_Case = 3;
@@ -38,7 +38,7 @@ public class StoreCredit{
 		for(caseCounter=0;caseCounter<number_Of_Test_Cases;caseCounter++){
 			
 			List<String> testCase = testCases.getCase(caseCounter);
-			CustomList customList = new CustomList(testCase.get(2));
+			ParsableList customList = new ParsableList(testCase.get(2));
 			List<Integer> inputList = customList.getIntegerList();
 			
 			int primaryIndex=0;

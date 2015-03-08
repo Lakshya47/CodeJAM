@@ -19,8 +19,8 @@ public class ReverseWords{
 	
 	public static void main(String [] args) throws IOException{
 		
-		String input_File_Name = "Problems\\B-small-practice.in";
-		String output_File_Name = "Problems\\B-small-practice-result.txt";
+		String input_File_Name = "Problems\\B-large-practice.in";
+		String output_File_Name = "Problems\\B-large-practice-result.txt";
 		List<String> data = new ArrayList<String>();
 		int number_Of_Test_Cases;
 		int size_Of_Test_Case = 1;
@@ -47,13 +47,24 @@ public class ReverseWords{
 		 * 
 		 */
 		
-		for(caseCounter=4;caseCounter<5;caseCounter++){
+		for(caseCounter=0;caseCounter<number_Of_Test_Cases;caseCounter++){
 			
 			List<String> testCase = testCases.getCase(caseCounter);
-			CustomList customList = new CustomList(testCase.get(0));
+			ParsableList customList = new ParsableList(testCase.get(0));
 			List<String> inputList = customList.getStringList();
 			
-			outputList = reverseEvenList(inputList);
+			List<String> tempList = new ArrayList<String>();
+			
+			if(inputList.size()%2 == 0){
+				tempList = reverseEvenList(inputList);
+			}else{
+				int middleIndex = (inputList.size()-1)/2;
+				String tempMiddleString = inputList.get(middleIndex);
+				inputList.remove(middleIndex);
+				tempList = reverseEvenList(inputList);
+				tempList.add(middleIndex,tempMiddleString);
+			}
+			outputList.add("Case #" + (caseCounter+1) + ": " + customList.getSingleString(tempList));
 		}
 		
 		System.out.println(Integer.toString(outputList.size()));
@@ -62,8 +73,7 @@ public class ReverseWords{
 			System.out.println(outputList.get(i));
 		}
 		
-		/*WriteFile writeFile = new WriteFile(output_File_Name);
-		writeFile.writeContent(outputList);*/
-		
+		WriteFile writeFile = new WriteFile(output_File_Name);
+		writeFile.writeContent(outputList);
 	}
 }
