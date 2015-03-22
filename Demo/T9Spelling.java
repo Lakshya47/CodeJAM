@@ -8,8 +8,8 @@ public class T9Spelling{
 	
 	public static void main(String [] args) throws IOException{
 		
-		String input_File_Name = "Problems\\C-large-practice.in";
-		String output_File_Name = "Problems\\C-large-practice-result.txt";
+		String input_File_Name = "Problems\\T9Spelling-large-practice.in";
+		String output_File_Name = "Problems\\T9Spelling-large-practice-result.txt";
 		List<String> data = new ArrayList<String>();
 		int number_Of_Test_Cases;
 		int size_Of_Test_Case = 1;
