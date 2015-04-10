@@ -1,19 +1,62 @@
+/*
+ * Author: Lakshya Chaudhary 
+ */
+
 import fileHandler.*;
 import java.io.IOException;
 import reusableMethods.*;
 import java.util.*;
 import org.json.simple.JSONObject;
 
+/*
+ * Class MSP:-
+ * 
+ * For detailed explanation of problem, please visit:-
+ * https://code.google.com/codejam/contest/32016/dashboard#s=p0
+ * 
+ * PROBLEM:-
+ * Acronym for Minimum Scalar Product - MSP
+ * To vectors are given of equal size. We have to multiply 'i' component
+ * of first vector with 'j' component of second vector such that
+ * sum of all i x j is minimum.
+ * 
+ * This can be perceived more clearly if we consider two arrays of equal length and
+ * multiply 'i' element of first array with 'j' element of second array such that
+ * sum of all multiplication is minimum.
+ * 
+ * SOLUTION:-
+ * 1. Sort both arrays.
+ * 2. Multiply smallest element of first array with largest element of second array.
+ * 3. The sum of all these products will always be minimum.
+ * 
+ * Below is the implmentation of above solution using array list.
+ */
+
 public class MSP{
 	
 	public static void main(String [] args) throws IOException{
 		
+		/*
+		 * **************************************************************
+		 * **************************************************************
+		 * Specify the Input File location and Output File location below
+		 * **************************************************************
+		 * **************************************************************
+		 */
+		
 		String input_File_Name = "Problems\\MSP-large-practice.in";
 		String output_File_Name = "Problems\\MSP-large-practice-result.txt";
+		
+		/*
+		 * **************************************************************
+		 * **************************************************************
+		 */
+		
 		List<String> data = new ArrayList<String>();
 		int number_Of_Test_Cases;
 		int size_Of_Test_Case = 3;
 		
+		// Below I am using the ReadFile class to read the Input file and getting a String ArrayList
 		try{
 			ReadFile file = new ReadFile(input_File_Name);
 			data = file.OpenFile();
@@ -72,6 +115,7 @@ public class MSP{
 			System.out.println(outputList.get(i));
 		}
 		
+		//Below I am using the WriteFile class to write the solution line by line into an output file.
 		WriteFile writeFile = new WriteFile(output_File_Name);
 		writeFile.writeContent(outputList);
 	}

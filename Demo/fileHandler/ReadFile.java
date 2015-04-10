@@ -1,9 +1,23 @@
+/*
+ * Author: Lakshya Chaudhary 
+ */
+
 package fileHandler;
 
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.*;
+
+/*
+ * Class ReadFile:-
+ * A simple utility that uses Java IO operation to read from Input file.
+ * Constructor takes the Input file path as argument.
+ * 
+ * OpenFile() method reads the Input file line by line and pushes the line
+ * into an ArrayList. So, If the Input file has N lines then the ArrayList will
+ * have N length.
+ */
 
 public class ReadFile{
 	private String path;

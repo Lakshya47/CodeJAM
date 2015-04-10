@@ -1,5 +1,17 @@
+/*
+ * Author: Lakshya Chaudhary 
+ */
+
 package reusableMethods;
 import java.util.*;
+
+/*
+ * Class  SortableList:-
+ * 
+ * This class sorts any ArrayList that is passed in its constructor.
+ * Initially it uses Bubble sort if the List length is small but more sorting
+ * algos can be used for bigger lists.
+ */
 
 public class SortableList{
 	List<Long> unsortedList = new ArrayList<Long>();
@@ -32,6 +44,12 @@ public class SortableList{
 		}
 	}
 	
+	/*
+	 * sortList() method checks the length of the Input list and
+	 * then decides which algo to use. Any other test for complexities
+	 * of given data can be checked here and then other appropriate algo can be used.
+	 */
+	
 	private void sortList(){
 		if(unsortedList.size()<=10){
 			System.out.println("\n\nUsing Bubble sort as array length is " + Integer.toString(unsortedList.size()));
@@ -41,6 +59,11 @@ public class SortableList{
 			sortedList = quickSort(unsortedList);
 		}
 	}
+	
+	/*
+	 * Below is simple bubble sort algo for sorting the given List
+	 * Complexity: O(n^2)
+	 */
 	
 	private List<Long> bubbleSort(List<Long> list){
 		List<Long> tempList = new ArrayList<Long>(list);
@@ -57,10 +80,15 @@ public class SortableList{
 		return tempList;
 	}
 	
+	/*
+	 * Below is Quick sort algo for sorting the given List
+	 * Complexity: O(nlogn)
+	 */
+	
 	private List<Long> quickSort(List<Long> list){
 		/*
-		 * Todo - Change Implmenetation to real Quick Sort
-		 * 
+		 * Todo - Change Implmenetation to real Quick Sort.
+		 * Currently the implmentation is bubble sort.
 		 */
 		List<Long> tempList = new ArrayList<Long>(list);
 		int i,j;

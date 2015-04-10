@@ -1,19 +1,45 @@
+/*
+ * Author: Lakshya Chaudhary 
+ */
+
 import fileHandler.*;
 import java.io.IOException;
 import reusableMethods.*;
 import java.util.*;
 import org.json.simple.JSONObject;
 
+/*
+ * Class T9Spelling:-
+ * 
+ * For detailed explanation of problem, please visit:-
+ * https://code.google.com/codejam/contest/351101/dashboard#s=p2
+ */
+
 public class T9Spelling{
 	
 	public static void main(String [] args) throws IOException{
 		
+		/*
+		 * **************************************************************
+		 * **************************************************************
+		 * Specify the Input File location and Output File location below
+		 * **************************************************************
+		 * **************************************************************
+		 */
+		
 		String input_File_Name = "Problems\\T9Spelling-large-practice.in";
 		String output_File_Name = "Problems\\T9Spelling-large-practice-result.txt";
+		
+		/*
+		 * **************************************************************
+		 * **************************************************************
+		 */
+		
 		List<String> data = new ArrayList<String>();
 		int number_Of_Test_Cases;
 		int size_Of_Test_Case = 1;
 		
+		//Below I am using the ReadFile class to read the Input file and getting a String ArrayList
 		try{
 			ReadFile file = new ReadFile(input_File_Name);
 			data = file.OpenFile();
@@ -21,6 +47,11 @@ public class T9Spelling{
 		catch(IOException e){
 			System.out.println(e.getMessage());
 		}
+		
+		/*
+		 * Below is a table (in form of Hashmap) which stores the numerical pattern
+		 * for each Alphabet.
+		 */
 		
 		HashMap obj = new HashMap();
 
@@ -51,6 +82,12 @@ public class T9Spelling{
 	      obj.put("y", "999");
 	      obj.put("z", "9999");
 	      obj.put(" ", "0");
+	      
+	   /*
+	    * Below is a table (in form of Hashmap) which stores the associated key
+		* for each Alphabet. This table tells if the characters occuring consecutively
+		* belong to the same numerical key or not.
+	    */
 	      
 	   HashMap obj2 = new HashMap();
 	   
@@ -120,6 +157,7 @@ public class T9Spelling{
 			System.out.println(outputList.get(i));
 		}
 		
+		//Below I am using the WriteFile class to write the solution line by line into an output file.
 		WriteFile writeFile = new WriteFile(output_File_Name);
 		writeFile.writeContent(outputList);
 	}

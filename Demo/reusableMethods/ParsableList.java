@@ -1,12 +1,24 @@
+/*
+ * Author: Lakshya Chaudhary 
+ */
+
 package reusableMethods;
 import java.util.*;
+
+/*
+ * Class ParsableList:-
+ * 
+ * A generic class for performing basic operations on String-Lists, Strings,
+ * Integer-Lists, etc. For e.g:- Spliting a string into an ArrayList & Vice-versa,
+ * Spliting a numeral string into an Interger List, etc.
+ */
 
 public class ParsableList{
 	
 	/*
-	 * function getStringList().
+	 * method getStringList().
 	 * @param 1: space sepearated words.
-	 * #param 2 (optional): string value to which split the input string from. 
+	 * @param 2 (optional): string value to which split the input string from. 
 	 * @return : List<String> that will be split spaces of input @param.
 	 * 
 	 */
@@ -34,7 +46,7 @@ public class ParsableList{
 	}
 	
 	/*
-	 * function getIntegerList().
+	 * method getIntegerList().
 	 * @param 1: space sepearated words.
 	 * @return : List<Integer> that will be split from spaces in input @param and then each word will be converted to Integer.
 	 * 
@@ -51,7 +63,7 @@ public class ParsableList{
 	}
 	
 	/*
-	 * function getLongIntegerList().
+	 * method getLongIntegerList().
 	 * @param 1: space sepearated words.
 	 * @return : List<Long> that will be split from spaces in input @param and then each word will be converted to long.
 	 * 
@@ -67,7 +79,7 @@ public class ParsableList{
 	}
 	
 	/*
-	 * function getFloatList().
+	 * method getFloatList().
 	 * @param 1: space sepearated words.
 	 * @return : List<Float> that will be split from spaces in input @param and then each word will be converted to float.
 	 * 
@@ -83,7 +95,7 @@ public class ParsableList{
 	}
 	
 	/*
-	 * function getSingleString().
+	 * method getSingleString().
 	 * @param 1: List<String> containing different words.
 	 * @param 2 (optional): String to seperate the concatenated result.
 	 * @return: A single string which is a concatenation of all elements of @param. 
@@ -115,7 +127,7 @@ public class ParsableList{
 	}
 	
 	/*
-	 * function getSumedList().
+	 * method getSumedList().
 	 * @param: A List<Long> of long numbers.
 	 * @return: long that is sum of all elements of @param.
 	 * 
@@ -130,4 +142,3 @@ public class ParsableList{
 		return result;
 	}
 }
-

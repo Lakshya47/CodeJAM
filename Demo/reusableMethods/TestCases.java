@@ -1,5 +1,20 @@
+/*
+ * Author: Lakshya Chaudhary 
+ */
+
 package reusableMethods;
 import java.util.*;
+
+/*
+ * Class TestCases:-
+ * 
+ * Constructor argument desc:-
+ * @param1: List<String> that contains the Input file data.
+ * @param2: The total number of test cases present in the Input file.
+ * @param3: length of each test case.
+ * 
+ * NOTE: This class is of no use if each test case is of different length. 
+ */
 
 public class TestCases{
 	private int number_Of_Test_Cases;

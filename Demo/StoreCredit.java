@@ -1,18 +1,44 @@
+/*
+ * Author: Lakshya Chaudhary 
+ */
+
 import fileHandler.*;
 import java.io.IOException;
 import reusableMethods.*;
 import java.util.*;
 
+/*
+ * Class StoreCredit:-
+ * 
+ * For detailed explanation of problem, please visit:-
+ * https://code.google.com/codejam/contest/351101/dashboard#s=p0
+ */
+
 public class StoreCredit{
 	
 	public static void main(String [] args) throws IOException{
 		
+		/*
+		 * **************************************************************
+		 * **************************************************************
+		 * Specify the Input File location and Output File location below
+		 * **************************************************************
+		 * **************************************************************
+		 */
+		
 		String input_File_Name = "Problems\\StoreCredit-large-practice.in";
 		String output_File_Name = "Problems\\StoreCredit-large-practice-result.txt";
+		
+		/*
+		 * **************************************************************
+		 * **************************************************************
+		 */
+		
 		List<String> data = new ArrayList<String>();
 		int number_Of_Test_Cases;
 		int size_Of_Test_Case = 3;
 		
+		//Below I am using the ReadFile class to read the Input file and getting a String ArrayList
 		try{
 			ReadFile file = new ReadFile(input_File_Name);
 			data = file.OpenFile();
@@ -82,6 +108,7 @@ public class StoreCredit{
 			System.out.println(outputList.get(i));
 		}
 		
+		//Below I am using the WriteFile class to write the solution line by line into an output file.
 		WriteFile writeFile = new WriteFile(output_File_Name);
 		writeFile.writeContent(outputList);
 		
