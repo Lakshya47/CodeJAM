@@ -22,16 +22,6 @@ public class SortableList{
 		sortList();
 	}
 	
-	/*public SortableList(List<Integer> list){
-		List<Long> tempList = new ArrayList<Long>();
-		int i;
-		for(i=0;i<list.size();i++){
-			tempList.add(new Long(list.get(i)));
-		}
-		unsortedList = tempList;
-		sortList();
-	}*/
-	
 	public void printSortedAndUnSortedLists(){
 		int i;
 		System.out.println("Unsorted List");
@@ -86,22 +76,37 @@ public class SortableList{
 	 */
 	
 	private List<Long> quickSort(List<Long> list){
-		/*
-		 * Todo - Change Implmenetation to real Quick Sort.
-		 * Currently the implmentation is bubble sort.
-		 */
 		List<Long> tempList = new ArrayList<Long>(list);
+		quick(tempList,0,tempList.size()-1);
+		return tempList;
+	}
+	
+	void quick(List<Long> a,int l,int r){
+		if(l<r){
+			int pi = partition(a,l,r);
+			quick(a,l,pi-1);
+			quick(a,pi+1,r);
+		}
+	}
+	
+	int partition(List<Long> a,int l,int r){
 		int i,j;
-		for(i=0;i<tempList.size();i++){
-			for(j=1;j<(tempList.size()-i);j++){
-				if(tempList.get(j-1)>tempList.get(j)){
-					long temp = tempList.get(j-1);
-					tempList.set(j-1,tempList.get(j));
-					tempList.set(j,temp);
-				}
+		i=l;
+		for(j=l;j<r;j++){
+			if(a.get(j)<=a.get(r)){
+				swap(a,i,j);
+				i++;
 			}
 		}
-		return tempList;
+		swap(a,i,r);
+		return i;
+	}
+	
+	void swap(List<Long> a,int i,int j){
+		long temp;
+		temp = a.get(i);
+		a.set(i,a.get(j));
+		a.set(j,temp);
 	}
 	
 	public List<Long> getSortedLongList(){
