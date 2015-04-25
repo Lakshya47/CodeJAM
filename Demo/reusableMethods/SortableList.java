@@ -44,9 +44,12 @@ public class SortableList{
 		if(unsortedList.size()<=10){
 			System.out.println("\n\nUsing Bubble sort as array length is " + Integer.toString(unsortedList.size()));
 			sortedList = bubbleSort(unsortedList);
-		}else{
+		}else if(unsortedList.size()>10 && unsortedList.size()<=100){
 			System.out.println("\n\nUsing Quick sort as array length is " + Integer.toString(unsortedList.size()));
 			sortedList = quickSort(unsortedList);
+		}else{
+			System.out.println("\n\nUsing Merge sort as array length is " + Integer.toString(unsortedList.size()));
+			sortedList = mergeSort(unsortedList);
 		}
 	}
 	
@@ -72,7 +75,7 @@ public class SortableList{
 	
 	/*
 	 * Below is Quick sort algo for sorting the given List
-	 * Complexity: O(nlogn)
+	 * Complexity: average O(nlog(n)) & worst O(n2)
 	 */
 	
 	private List<Long> quickSort(List<Long> list){
@@ -107,6 +110,45 @@ public class SortableList{
 		temp = a.get(i);
 		a.set(i,a.get(j));
 		a.set(j,temp);
+	}
+	
+	/*
+	 * Below is merge sort algo for sorting the given List
+	 * Complexity: O(nlog(n))
+	 */
+	
+	private List<Long> mergeSort(List<Long> list){
+		List<Long> tempList = new ArrayList<Long>(list);
+		ms(tempList,0,list.size()-1);
+		return tempList;
+	}
+	
+	void ms(List<Long> l,int p,int r){
+		if(p<r){
+			int q=(p+r)/2;
+			ms(l,p,q);
+			ms(l,q+1,r);
+			m(l,p,q,r);
+		}
+	}
+	
+	void m(List<Long> l,int p,int q,int r){
+		List<Long> l1 = new ArrayList<Long>(l.subList(p,q+1));
+		List<Long> l2 = new ArrayList<Long>(l.subList(q+1,r+1));
+		long big = 99999999;
+		l1.add(big);
+		l2.add(big);
+		int i,j;
+		i=j=0;
+		for(int k=p;k<=r;k++){
+			if(l1.get(i)<=l2.get(j)){
+				l.set(k,l1.get(i));
+				i++;
+			}else{
+				l.set(k,l2.get(j));
+				j++;
+			}
+		}
 	}
 	
 	public List<Long> getSortedLongList(){
